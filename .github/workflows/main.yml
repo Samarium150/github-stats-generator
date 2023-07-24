@@ -59,6 +59,8 @@ jobs:
         outputs: |
           generated/github-snake.svg
           generated/github-snake-dark.svg?palette=github-dark
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     # Import GPG key
     - name: Import GPG key
