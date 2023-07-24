@@ -53,12 +53,14 @@ jobs:
         EXCLUDE_FORKED_REPOS: true
 
     - name: Generate snk images
-      uses: Platane/snk@v2
+      uses: Platane/snk@v3
       with:
         github_user_name: ${{ github.repository_owner }}
         outputs: |
           generated/github-snake.svg
           generated/github-snake-dark.svg?palette=github-dark
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     # Import GPG key
     - name: Import GPG key
